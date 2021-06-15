@@ -1,0 +1,16 @@
+{
+  "name": "reactnative_medium",
+  "version": "1.0.0",
+  "description": "Tech test for React Native",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "UALOG",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13"
+  }
+}
