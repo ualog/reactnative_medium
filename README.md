@@ -18,6 +18,7 @@ Cette DB rassemble des objets `films` qui sont triés par `catégories`
 **Le test consite à créer une application React Native depuis zéro**
 
 **L'application devra comporter 2 écrans**
+
 -> Sur ces 2 écrans doit figurer un header avec le titre du projet et un compteur des films en favoris
 Ce header doit être un composant à part et réutilisable
 
