@@ -7,16 +7,16 @@ import { getCategorieFromApi } from '../API/UalogApi'
 import { getFilmByCategorieFromApi } from '../API/UalogApi'
 
 class Films extends React.Component {
+  
 
   constructor(props) {
     super(props)
     this.state = {
       films: [],
       categorie: [],
-      selectedValue: "all",
       isLoading: false
     }
-
+    this.selectedValue = "all"
     this._loadFilms = this._loadFilms.bind(this)
     this._loadCategorie = this._loadCategorie.bind(this)
 
@@ -29,8 +29,7 @@ class Films extends React.Component {
 
   _loadFilms() {
     this.setState({ isLoading: true })
-
-     if(this.state.selectedValue=="all")
+     if(this.selectedValue=="all")
     {
     getFilmsFromApi().then(data => {
         this.setState({
@@ -39,7 +38,7 @@ class Films extends React.Component {
         })
     })}
     else {
-      getFilmByCategorieFromApi(this.state.selectedValue).then(data => {
+      getFilmByCategorieFromApi(this.selectedValue).then(data => {
         this.setState({
           films: data.datas.films,
           isLoading: false
@@ -62,7 +61,7 @@ class Films extends React.Component {
         <Picker 
             style={styles.container}
             selectedValue={this.state.selectedValue}
-            onValueChange={(itemValue, itemIndex) => {this.setState({selectedValue: itemValue});this._loadFilms()}}>
+            onValueChange={(itemValue, itemIndex) => {this.selectedValue = itemValue;this._loadFilms()}}>
             <Picker.Item label="All" value="all" />
             {this.state.categorie.map((value) => {return (<Picker.Item label={value.name} value={value._id}/>)})}
         </Picker>
